@@ -34,7 +34,7 @@ import json
 import os
 import sys
 
-from .utils import (
+from utils import (
     inicializar_y_capturar_excepciones,
     BaseWS,
     get_install_dir,
@@ -44,13 +44,13 @@ from .utils import (
     SoapFault,
 )
 from configparser import SafeConfigParser
-from .padron import TIPO_CLAVE, PROVINCIAS
+from padron import TIPO_CLAVE, PROVINCIAS
 
 
 HOMO = False
 LANZAR_EXCEPCIONES = True
 WSDL = "https://awshomo.afip.gov.ar/sr-padron/webservices/personaServiceA4?wsdl"
-CONFIG_FILE = "rece.ini"
+CONFIG_FILE = "conf\\rece.ini"
 
 
 class WSSrPadronA4(BaseWS):
@@ -345,7 +345,7 @@ def main():
         url_ws = config.get(SECTION, "URL")
 
     # obteniendo el TA para pruebas
-    from .wsaa import WSAA
+    from wsaa import WSAA
 
     cache = ""
     ta = WSAA().Autenticar(service, crt, key, url_wsaa)

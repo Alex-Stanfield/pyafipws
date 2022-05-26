@@ -39,7 +39,7 @@ import unicodedata
 import warnings
 
 from pysimplesoap.client import SimpleXMLElement
-from .utils import (
+from utils import (
     inicializar_y_capturar_excepciones,
     BaseWS,
     get_install_dir,
@@ -546,7 +546,7 @@ def main():
         # consultar el padrón online de AFIP si no se especificó razón social:
         empresa = len(args) > 3 and args[3] or ""
         if not empresa:
-            from .padron import PadronAFIP
+            from padron import PadronAFIP
 
             padron = PadronAFIP()
             ok = padron.Consultar(cuit)
